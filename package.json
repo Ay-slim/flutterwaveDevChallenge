@@ -1,0 +1,30 @@
+{
+  "name": "flutterdevchallenge",
+  "version": "1.0.0",
+  "description": "The backend APIs for the Jumga ecommerce payments system. A submission for the Flutterwave developer challenge",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ay-slim/flutterwaveDevChallenge.git"
+  },
+  "keywords": [
+    "Jumga",
+    "Flutterwave",
+    "API",
+    "Payments"
+  ],
+  "author": "Ayooluwa Adedipe",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ay-slim/flutterwaveDevChallenge/issues"
+  },
+  "homepage": "https://github.com/Ay-slim/flutterwaveDevChallenge#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.11.9"
+  }
+}
