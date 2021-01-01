@@ -1,3 +1,3 @@
-connectToMongoDB = require('./utils/helpers.utils')
+connectToDB = require('./utils/helpers.utils')
 
-connectToMongoDB()
+connectToDB()
