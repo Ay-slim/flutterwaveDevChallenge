@@ -1,3 +1,3 @@
-connectToDB = require('./utils/helpers.utils')
+const { connectToDB } = require('./utils/helpers.utils');
 
 connectToDB()
