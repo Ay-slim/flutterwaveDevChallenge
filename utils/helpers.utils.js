@@ -7,7 +7,7 @@ const { MONGO_CONNECTION_STRING } = process.env;
 /**
  * Connects us to mongodb
  */
-async function connectToDB() {
+async function connectToDB () {
   try {
     // connect to db
     await mongoose.connect(MONGO_CONNECTION_STRING, {
