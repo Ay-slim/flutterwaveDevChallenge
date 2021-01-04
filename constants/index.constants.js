@@ -1,0 +1,1 @@
+const ROUTES = {CREATE_SHOP: '/shops/create'}
