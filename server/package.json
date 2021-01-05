@@ -25,6 +25,7 @@
   "homepage": "https://github.com/Ay-slim/flutterwaveDevChallenge#readme",
   "dependencies": {
     "express": "^4.17.1",
-    "mongoose": "^5.11.9"
+    "mongoose": "^5.11.9",
+    "morgan": "^1.10.0"
   }
 }
