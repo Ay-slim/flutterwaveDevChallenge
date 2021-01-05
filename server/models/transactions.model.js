@@ -2,12 +2,11 @@ const { model, Schema } = require('mongoose')
 
 const transactionSchema = new Schema({
   total_transaction_value: Number,
-  merchant_name: String,
+  merchant_id: String,
   merchant_value: Number,
   delivery_value: { type: Number, default: 0 },
   jumga_comission: Number,
   jumga_delivery_comission: Number,
-  confirmation_token: Boolean,
   created_at: { type: Date, default: Date.now() },
   transaction_id: { type: Number, required: true, unique: true }
 })
