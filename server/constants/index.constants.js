@@ -1,4 +1,7 @@
-const ROUTES = { CREATE_SHOP: '/shops' }
+const ROUTES = {
+  CREATE_SHOP: '/shops',
+  CREATE_CUSTOMER: '/customers'
+}
 const SALT_ROUNDS = 10
 const SHOP_DATA_TO_RETURN = ['name',
   'bank',
@@ -6,5 +9,14 @@ const SHOP_DATA_TO_RETURN = ['name',
   'email',
   'dispatch_rider',
   'country']
+const CUSTOMER_DATA_TO_RETURN = ['name',
+  'email',
+  'phone_number'
+]
 
-module.exports = { ROUTES, SALT_ROUNDS, SHOP_DATA_TO_RETURN }
+module.exports = {
+  ROUTES,
+  SALT_ROUNDS,
+  SHOP_DATA_TO_RETURN,
+  CUSTOMER_DATA_TO_RETURN
+}

@@ -27,8 +27,9 @@ async function create (req, callback) {
     return callback(null, response)
   } catch (error) {
     response.status = 500
+    response.message = 'Something went wrong, please try again'
     return callback(error, response)
   }
 }
 
-module.exports = create
+module.exports = { create }
