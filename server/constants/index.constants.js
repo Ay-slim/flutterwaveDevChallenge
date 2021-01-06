@@ -2,7 +2,8 @@ const ROUTES = {
   CREATE_SHOP: '/shops',
   CREATE_CUSTOMER: '/customers',
   CREATE_TRANSACTION: '/transactions',
-  CREATE_ITEM: '/items'
+  CREATE_ITEM: '/items',
+  CREATE_RIDER: '/riders'
 }
 const INTERNAL_SERVER_ERROR_MESSAGE = 'Something went wrong, please try again'
 const SALT_ROUNDS = 10
@@ -33,6 +34,10 @@ const ITEM_DATA_TO_RETURN = ['name',
   'price',
   'created_at'
 ]
+const RIDER_DATA_TO_RETURN = ['name',
+  'shops',
+  'total_revenue',
+  'created_at']
 const SALES_COMMISSION = 0.025
 const DELIVERY_COMMISSION = 0.2
 
@@ -44,6 +49,7 @@ module.exports = {
   CUSTOMER_DATA_TO_RETURN,
   TRANSACTION_DATA_TO_RETURN,
   ITEM_DATA_TO_RETURN,
+  RIDER_DATA_TO_RETURN,
   SALES_COMMISSION,
   DELIVERY_COMMISSION
 }
