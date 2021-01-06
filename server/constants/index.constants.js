@@ -1,7 +1,8 @@
 const ROUTES = {
   CREATE_SHOP: '/shops',
   CREATE_CUSTOMER: '/customers',
-  CREATE_TRANSACTION: '/transactions'
+  CREATE_TRANSACTION: '/transactions',
+  CREATE_ITEM: '/items'
 }
 const INTERNAL_SERVER_ERROR_MESSAGE = 'Something went wrong, please try again'
 const SALT_ROUNDS = 10
@@ -26,6 +27,12 @@ const TRANSACTION_DATA_TO_RETURN = ['name',
   'jumga_delivery_comission',
   'created_at'
 ]
+const ITEM_DATA_TO_RETURN = ['name',
+  'merchant_id',
+  'image',
+  'price',
+  'created_at'
+]
 const SALES_COMMISSION = 0.025
 const DELIVERY_COMMISSION = 0.2
 
@@ -36,6 +43,7 @@ module.exports = {
   SHOP_DATA_TO_RETURN,
   CUSTOMER_DATA_TO_RETURN,
   TRANSACTION_DATA_TO_RETURN,
+  ITEM_DATA_TO_RETURN,
   SALES_COMMISSION,
   DELIVERY_COMMISSION
 }
