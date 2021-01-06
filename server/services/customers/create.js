@@ -1,6 +1,6 @@
 const CustomerModel = require('../../models/customers.model')
 const bcrypt = require('bcrypt')
-const { SALT_ROUNDS, CUSTOMER_DATA_TO_RETURN } = require('../../constants/index.constants')
+const { SALT_ROUNDS, CUSTOMER_DATA_TO_RETURN, INTERNAL_SERVER_ERROR_MESSAGE } = require('../../constants/index.constants')
 const { pick } = require('lodash')
 
 async function create (req, callback) {
@@ -25,7 +25,7 @@ async function create (req, callback) {
     return callback(null, response)
   } catch (error) {
     response.status = 500
-    response.message = 'Something went wrong please try again'
+    response.message = INTERNAL_SERVER_ERROR_MESSAGE
     return callback(error, response)
   }
 }

@@ -5,10 +5,10 @@ const transactionSchema = new Schema({
   merchant_id: String,
   merchant_value: Number,
   delivery_value: { type: Number, default: 0 },
-  jumga_comission: Number,
-  jumga_delivery_comission: Number,
+  comission: Number,
+  delivery_comission: Number,
   created_at: { type: Date, default: Date.now() },
-  transaction_id: { type: Number, required: true, unique: true }
+  id: { type: Number, required: true, unique: true }
 })
 
 const transactionModel = model('Transaction', transactionSchema)
