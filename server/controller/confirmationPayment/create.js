@@ -8,9 +8,9 @@ async function makeInitialPayment (req, res) {
     method: 'POST',
     body: paymentData,
     json: true,
-    url: FLUTTERWAVE_SECRET_KEY,
+    url: 'https://api.flutterwave.com/v3/charges?type=debit_ng_account',
     headers: {
-      Authorization: 'Bearer FLWSECK_TEST-c72f5a11ed2c0498303a712a6e445e29-X'
+      Authorization: FLUTTERWAVE_SECRET_KEY
     }
   }
   function callback (error, response, body) {
