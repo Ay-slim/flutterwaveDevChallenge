@@ -3,7 +3,8 @@ const ROUTES = {
   CREATE_CUSTOMER: '/customers',
   CREATE_TRANSACTION: '/transactions',
   CREATE_ITEM: '/items',
-  CREATE_RIDER: '/riders'
+  CREATE_RIDER: '/riders',
+  CREATE_INITIAL_PAYMENT: '/initial-payment'
 }
 const INTERNAL_SERVER_ERROR_MESSAGE = 'Something went wrong, please try again'
 const SALT_ROUNDS = 10
