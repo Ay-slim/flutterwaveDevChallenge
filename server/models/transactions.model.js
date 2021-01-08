@@ -2,9 +2,9 @@ const { model, Schema } = require('mongoose')
 
 const transactionSchema = new Schema({
   total_transaction_value: Number,
-  merchant_id: String,
+  merchant_id: Number,
   merchant_value: Number,
-  delivery_value: { type: Number, default: 0 },
+  delivery_value: Number,
   comission: Number,
   delivery_comission: Number,
   created_at: { type: Date, default: Date.now() },
