@@ -1,10 +1,10 @@
 require('dotenv').config({ silent: true })
 
-const shopCreation = require('../../services/shops/create')
+const customerCreation = require('../../services/customers/create')
 const { errorResponse, okResponse } = require('../../utils/response.utils')
 
-async function createShop (req, res) {
-  shopCreation.create(
+async function createCustomer (req, res) {
+  customerCreation.create(
     req, (err, response) => {
       if (err) {
         return errorResponse({ statusCode: response.status, data: response, res })
@@ -14,4 +14,4 @@ async function createShop (req, res) {
   )
 }
 
-module.exports = createShop
+module.exports = createCustomer

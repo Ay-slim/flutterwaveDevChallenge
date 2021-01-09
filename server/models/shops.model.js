@@ -8,6 +8,7 @@ const shopsSchema = new Schema({
   dispatch_rider: String,
   country: String,
   total_revenue: Number,
+  password: String,
   created_at: { type: Date, default: Date.now() },
   id: { type: Number, required: true, unique: true }
 })
