@@ -18,13 +18,12 @@
 }
 
 .login__redirect {
-    margin: 10px;
+    margin: 20px 10px 20px 0;
     padding: 15px 45px;
     text-align: center;
     text-transform: uppercase;
-    transition: 0.5s;
-    background-size: 200% auto;
-    color: white;
+    transition: 2s;
+    color: black;
     border-radius: 10px;
     display: block;
     background-image: linear-gradient(to right, #02aab0 0%, #00cdac 51%, #02aab0 100%);
@@ -34,6 +33,40 @@
     background-position: right center; /* change the direction of the change here */
     color: #fff;
     text-decoration: none;
+}
+
+.signup__redirect {
+    margin: 20px 0 20px 10px;
+    padding: 15px 45px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 2s;
+
+    color: black;
+    border-radius: 10px;
+    display: block;
+    background-image: linear-gradient(to right, #ffc0cb 0%, #ffb6c1 51%, #ff1493 100%);
+}
+
+.signup__redirect:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+}
+
+.image {
+    object-fit: cover;
+    height: 400px;
+    width: 400px;
+}
+
+.image__container {
+    width: 100%;
+    text-align: center;
+}
+
+.button__div {
+    display: flex;
 }
 
 @media (min-width: $large) {
@@ -46,10 +79,13 @@
         width: 90%;
     }
 
-    .text__container,
-    .image__container {
+    .text__container {
         width: 100%;
-        margin-top: 75px;
+        margin-top: 175px;
+    }
+
+    .image__container {
+        margin-top: 175px;
     }
 }
 

@@ -10,8 +10,8 @@ body {
     background-image: linear-gradient(
         90deg,
         $primary__background 9.93%,
-        $white 9.93%,
-        $white 9.99%,
+        $lightgray 9.93%,
+        $lightgray 9.99%,
         $primary__background 10.26%,
         $primary__background 20.2%,
         $primary__background 20.2%,
@@ -22,8 +22,8 @@ body {
         $primary__background 50%,
         $primary__background 50%,
         $primary__background 59.93%,
-        $white 59.93%,
-        $white 59.99%,
+        $lightgray 59.93%,
+        $lightgray 59.99%,
         $primary__background 60.26%,
         $primary__background 70.2%,
         $primary__background 70.2%,
@@ -35,6 +35,7 @@ body {
     );
     color: $white;
     background-size: 300px 300px;
+    overflow: hidden;
 }
 
 html {
