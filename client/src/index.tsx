@@ -1,11 +1,12 @@
 import { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Routes from './components/routes';
+import './stylesheets/index.scss';
 
 ReactDOM.render(
     <Suspense fallback={<div>Loading</div>}>
-        <App />
+        <Routes />
     </Suspense>,
     document.getElementById('root')
 );

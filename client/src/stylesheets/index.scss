@@ -1,0 +1,50 @@
+@import './colors';
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans',
+        'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 14px;
+    background-image: linear-gradient(
+        90deg,
+        $primary__background 9.93%,
+        $lightgray 9.93%,
+        $lightgray 9.99%,
+        $primary__background 10.26%,
+        $primary__background 20.2%,
+        $primary__background 20.2%,
+        $primary__background 30.13%,
+        $primary__background 30.13%,
+        $primary__background 40.07%,
+        $primary__background 40.07%,
+        $primary__background 50%,
+        $primary__background 50%,
+        $primary__background 59.93%,
+        $lightgray 59.93%,
+        $lightgray 59.99%,
+        $primary__background 60.26%,
+        $primary__background 70.2%,
+        $primary__background 70.2%,
+        $primary__background 80.13%,
+        $primary__background 80.13%,
+        $primary__background 90.07%,
+        $primary__background 90.07%,
+        $primary__background 100%
+    );
+    color: $white;
+    background-size: 300px 300px;
+    overflow: hidden;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+button {
+    cursor: pointer;
+    margin: 10px;
+    font-family: 'Arial Black', Gadget, sans-serif;
+    border: none;
+}
