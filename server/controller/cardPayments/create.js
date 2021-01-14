@@ -1,16 +1,18 @@
 require('dotenv').config({ silent: true })
-const { FLUTTERWAVE_SECRET_KEY } = process.env
+const { FLUTTERWAVE_SECRET_KEY, ENCRYPTION_KEY } = process.env
 const request = require('request')
 const { pick } = require('lodash')
 const { errorResponse, okResponse } = require('../../utils/response.utils')
-const { sendTransactionToDB } = require('../utils')
+const { sendTransactionToDB, encrypt } = require('../utils')
 const { CARD_PAYMENT_DETAILS } = require('../../constants/index.constants')
 async function makeCardPayment (req, res) {
   const dataFromReq = req.body
   const paymentData = { ...pick(dataFromReq, CARD_PAYMENT_DETAILS) }
+  const stringifiedData = JSON.stringify(paymentData)
+  const encryptedData = await encrypt(ENCRYPTION_KEY, stringifiedData)
   const options = {
     method: 'POST',
-    body: paymentData,
+    body: encryptedData,
     json: true,
     url: 'https://api.flutterwave.com/v3/charges?type=card',
     headers: {
@@ -31,10 +33,7 @@ async function makeCardPayment (req, res) {
       return okResponse({ statusCode: response.statusCode, data: response.body, res })
     }
     transactionData.transaction_status = 'failed'
-    console.log(transactionData)
-    console.log(error)
-    const DBResponse = await sendTransactionToDB(transactionData)
-    console.log('response: ', DBResponse)
+    await sendTransactionToDB(transactionData)
     return errorResponse({ statusCode: response.statusCode, data: response.body, res })
   }
   request(options, callback)
