@@ -1,12 +1,11 @@
-const TransModel = require('../../models/transactions.model')
-const RiderModel = require('../../models/riders.model')
-const ShopModel = require('../../models/shops.model')
-const { TRANSACTION_DATA_TO_RETURN, SALES_COMMISSION, DELIVERY_COMMISSION, INTERNAL_SERVER_ERROR_MESSAGE } = require('../../constants/index.constants')
+const TransModel = require('../models/transactions.model')
+const RiderModel = require('../models/riders.model')
+const ShopModel = require('../models/shops.model')
+const { TRANSACTION_DATA_TO_RETURN, SALES_COMMISSION, DELIVERY_COMMISSION } = require('../constants/index.constants')
 const { pick } = require('lodash')
 
-async function create (req, callback) {
+async function sendTransactionToDB (data) {
   const response = {}
-  const data = req.body
   try {
     const transaction = await TransModel.findOne().sort({ created_at: -1 }).exec()
     const itemValue = data.delivery_value ? data.total_value - data.delivery_value : data.total_value
@@ -23,28 +22,23 @@ async function create (req, callback) {
       created_at: Date.now(),
       id: transaction ? transaction.id + 1 : 1
     }
-    console.log(newTransaction)
     const transactionDoc = new TransModel(newTransaction)
-    console.log('tD: ', transactionDoc)
     const createdTransaction = await transactionDoc.save()
-    console.log('cT: ', createdTransaction)
     response.data = { ...pick(createdTransaction, TRANSACTION_DATA_TO_RETURN) }
     response.status = 200
     response.message = 'Transaction created successfully'
     const riderRevenue = data.delivery_value ? data.delivery_value * (1 - DELIVERY_COMMISSION) : 0
-    console.log(riderRevenue)
-    if (riderRevenue) {
+    if (riderRevenue !== 0 && data.transaction_status === 'successful') {
       const [shopDetails] = await ShopModel.find({ id: data.merchant_id }).exec()
-      const riderName = shopDetails.dispatch_rider
-      await RiderModel.updateOne({ name: riderName }, { $inc: { total_revenue: riderRevenue } })
-      return callback(null, response)
+      const riderId = shopDetails.dispatch_rider_id
+      await ShopModel.updateOne({ id: data.merchant_id }, { $inc: { total_revenue: newTransaction.merchant_value } })
+      await RiderModel.updateOne({ id: riderId }, { $inc: { total_revenue: riderRevenue } })
+      return 'done'
     }
-    return callback(null, response)
+    return 'done'
   } catch (error) {
-    response.status = 500
-    response.message = INTERNAL_SERVER_ERROR_MESSAGE
-    return callback(error, response)
+    return 'error'
   }
 }
 
-module.exports = { create }
+module.exports = { sendTransactionToDB }

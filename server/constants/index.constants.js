@@ -4,7 +4,8 @@ const ROUTES = {
   CREATE_TRANSACTION: '/transactions',
   CREATE_ITEM: '/items',
   CREATE_RIDER: '/riders',
-  CREATE_INITIAL_PAYMENT: '/initial-payment'
+  CREATE_INITIAL_PAYMENT: '/initial-payment',
+  MAKE_CARD_PAYMENT: '/card-payment'
 }
 const INTERNAL_SERVER_ERROR_MESSAGE = 'Something went wrong, please try again'
 const SALT_ROUNDS = 10
@@ -39,6 +40,17 @@ const RIDER_DATA_TO_RETURN = ['name',
   'shops',
   'total_revenue',
   'created_at']
+const CARD_PAYMENT_DETAILS = ['card_number',
+  'cvv',
+  'expiry_month',
+  'expiry_year',
+  'currency',
+  'amount',
+  'fullname',
+  'email',
+  'tx_ref',
+  'redirect_url',
+  'authorization']
 const SALES_COMMISSION = 0.025
 const DELIVERY_COMMISSION = 0.2
 
@@ -52,5 +64,6 @@ module.exports = {
   ITEM_DATA_TO_RETURN,
   RIDER_DATA_TO_RETURN,
   SALES_COMMISSION,
-  DELIVERY_COMMISSION
+  DELIVERY_COMMISSION,
+  CARD_PAYMENT_DETAILS
 }

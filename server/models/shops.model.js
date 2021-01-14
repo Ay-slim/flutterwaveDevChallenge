@@ -5,9 +5,9 @@ const shopsSchema = new Schema({
   bank: String,
   account_no: String,
   email: String,
-  dispatch_rider: String,
+  dispatch_rider_id: Number,
   country: String,
-  total_revenue: Number,
+  total_revenue: { type: Number, default: 0 },
   password: String,
   created_at: { type: Date, default: Date.now() },
   id: { type: Number, required: true, unique: true }

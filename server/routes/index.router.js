@@ -6,6 +6,7 @@ const transactionRouter = require('./transaction.router')
 const itemRouter = require('./item.router')
 const riderRouter = require('./rider.router')
 const initialPaymentRouter = require('./initialPayment.router')
+const cardPaymentRouter = require('./cardPayment.router')
 
-const APIRouter = [testRouter, shopRouter, customerRouter, transactionRouter, itemRouter, riderRouter, initialPaymentRouter, invalidRoutesRouter]
+const APIRouter = [testRouter, shopRouter, customerRouter, transactionRouter, itemRouter, riderRouter, initialPaymentRouter, cardPaymentRouter, invalidRoutesRouter]
 module.exports = APIRouter

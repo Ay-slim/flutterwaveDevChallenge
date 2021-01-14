@@ -13,6 +13,7 @@ async function create (req, callback) {
       name: data.name,
       bank: data.bank,
       account_no: data.account_no,
+      dispatch_rider_id: data.dispatch_rider_id,
       email: data.email,
       country: data.country,
       password: encryptedPassword,
