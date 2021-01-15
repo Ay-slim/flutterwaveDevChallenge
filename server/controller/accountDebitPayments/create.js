@@ -1,20 +1,18 @@
 require('dotenv').config({ silent: true })
-const { FLUTTERWAVE_SECRET_KEY, ENCRYPTION_KEY } = process.env
+const { FLUTTERWAVE_SECRET_KEY } = process.env
 const request = require('request')
 const { pick } = require('lodash')
 const { errorResponse, okResponse } = require('../../utils/response.utils')
-const { sendTransactionToDB, encrypt } = require('../utils')
-const { CARD_PAYMENT_DETAILS } = require('../../constants/index.constants')
-async function makeCardPayment (req, res) {
+const { sendTransactionToDB } = require('../utils')
+const { ACCOUNT_PAYMENT_DETAILS } = require('../../constants/index.constants')
+async function makePaymentFromAccount (req, res) {
   const dataFromReq = req.body
-  const paymentData = { ...pick(dataFromReq, CARD_PAYMENT_DETAILS) }
-  const stringifiedData = JSON.stringify(paymentData)
-  const encryptedData = await encrypt(ENCRYPTION_KEY, stringifiedData)
+  const paymentData = { ...pick(dataFromReq, ACCOUNT_PAYMENT_DETAILS) }
   const options = {
     method: 'POST',
-    body: encryptedData,
+    body: paymentData,
     json: true,
-    url: 'https://api.flutterwave.com/v3/charges?type=card',
+    url: 'https://api.flutterwave.com/v3/charges?type=debit_ng_account',
     headers: {
       Authorization: FLUTTERWAVE_SECRET_KEY
     }
@@ -24,7 +22,7 @@ async function makeCardPayment (req, res) {
     merchant_id: dataFromReq.merchant_id,
     item_id: dataFromReq.item_id,
     transaction_status: null,
-    transaction_type: 'card',
+    transaction_type: 'account',
     delivery_value: dataFromReq.delivery_value ? dataFromReq.delivery_value : 0
   }
   async function callback (error, response, body) {
@@ -40,4 +38,4 @@ async function makeCardPayment (req, res) {
   request(options, callback)
 }
 
-module.exports = makeCardPayment
+module.exports = makePaymentFromAccount

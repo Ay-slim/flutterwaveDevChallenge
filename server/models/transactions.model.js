@@ -10,6 +10,7 @@ const transactionSchema = new Schema({
   delivery_comission: Number,
   item_id: Number,
   transaction_status: String,
+  transaction_type: String,
   created_at: { type: Date, default: Date.now() },
   id: { type: Number, required: true, unique: true }
 })

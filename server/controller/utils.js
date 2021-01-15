@@ -19,6 +19,7 @@ async function sendTransactionToDB (data) {
       delivery_comission: data.delivery_value ? data.delivery_value * DELIVERY_COMMISSION : 0,
       item_id: data.item_id,
       transaction_status: data.transaction_status,
+      transaction_type: data.transaction_type,
       created_at: Date.now(),
       id: transaction ? transaction.id + 1 : 1
     }
