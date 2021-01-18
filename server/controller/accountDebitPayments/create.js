@@ -12,7 +12,7 @@ async function makePaymentFromAccount (req, res) {
     method: 'POST',
     body: paymentData,
     json: true,
-    url: 'https://api.flutterwave.com/v3/charges?type=debit_ng_account',
+    url: dataFromReq.url,
     headers: {
       Authorization: FLUTTERWAVE_SECRET_KEY
     }

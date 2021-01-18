@@ -2,13 +2,14 @@ require('dotenv').config({ silent: true })
 const { FLUTTERWAVE_SECRET_KEY } = process.env
 const request = require('request')
 const { errorResponse, okResponse } = require('../../utils/response.utils')
+const _ = require('lodash')
 async function makeInitialPayment (req, res) {
   const paymentData = req.body
   const options = {
     method: 'POST',
-    body: paymentData,
+    body: _.omit(paymentData, ['url']),
     json: true,
-    url: 'https://api.flutterwave.com/v3/charges?type=debit_ng_account',
+    url: paymentData.url,
     headers: {
       Authorization: FLUTTERWAVE_SECRET_KEY
     }
