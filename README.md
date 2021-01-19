@@ -1,2 +1,1 @@
-# flutterwaveDevChallenge
-Backend for Jumga ecommerce website
+﻿﻿# ﻿﻿﻿﻿Jumga ecommerce websiteBased on the competition prompt, this repo contains code for an ecommerce website allows merchants to set up shops where customers can shop for items.The readme file in the server directory describes the API endpoints that enable merchant creation, items purchase, and other payments while the readme in the client directory describes the frontend (customer facing) part of the web app.
